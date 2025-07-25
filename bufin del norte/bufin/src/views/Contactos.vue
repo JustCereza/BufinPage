@@ -68,14 +68,14 @@ const submitForm = () => {
             <button type="button" class="btn-submit" @click="submitForm">Enviar</button>
           </div>
 
-          <!-- Información de contacto -->
+          <!-- Información de contacto -->  
           <div class="contact-info-container">
             <div class="row">
               <div class="col-md-6">
                 <div class="contact-info-title">Correos Electrónicos</div>
                 <div class="contact-card">
                   <div class="icon-container"><i class="bi bi-envelope"></i></div>
-                  <div class="contact-info">jtorres@aienvh.mx</div>
+                  <div class="contact-info">jtorres@daiweb.com</div>
                 </div>
                 <div class="contact-card">
                   <div class="icon-container"><i class="bi bi-envelope"></i></div>
@@ -94,8 +94,18 @@ const submitForm = () => {
                 </div>
               </div>
             </div>
+            <div class="tech-support-container mt-4">
+            <div class="contact-info-title text-center">Soporte Técnico / Sistemas</div>
+            <div class="contact-card justify-content-center">
+              <div class="icon-container"><i class="bi bi-person-gear"></i></div>
+              <div class="contact-info">jsalas@bufinorte.com</div>
+            </div>
+            <div class="contact-card justify-content-center">
+              <div class="icon-container"><i class="bi bi-person-gear"></i></div>
+              <div class="contact-info">antonioavelar@bufinorte.com</div>
+            </div>
           </div>
-
+          </div>
         </div>
       </div>
     </div>
@@ -230,4 +240,15 @@ const submitForm = () => {
   border-bottom: 1px solid #444;
   padding-bottom: 4px;
 }
+
+.tech-support-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.tech-support-container .contact-card {
+  max-width: 500px;
+  margin: 0.5rem auto;
+}
+
 </style>

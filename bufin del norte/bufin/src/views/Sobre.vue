@@ -1,13 +1,24 @@
 <script setup>
+import { ref } from 'vue';
 import Navbar from '../components/Navbar.vue';
 import Footer from '../components/Footer.vue';
 
+// Importar imágenes
 import bullseye from '../assets/bullseye.png';
 import businessTeam from '../assets/business-team.jpg';
 import decisionMaking from '../assets/decision-making.jpeg';
 import mapWithPins from '../assets/map-with-pins.jpg';
 import thinking from '../assets/thinking.jpg';
 import vision from '../assets/vision.jpg';
+import daiLogo from '../assets/Dai.jpg';
+import binleyAnuncio from '../assets/binley-anuncio.png';
+import img1 from '../assets/dai-modal-1.png';
+import img2 from '../assets/dai-modal-2.png';
+import img3 from '../assets/dai-modal-3.png';
+import BufinLogo from '../assets/Bufin-Logo.png';
+
+const showDAIModal = ref(false);
+const showImageModal = ref(false);
 </script>
 
 <template>
@@ -79,6 +90,104 @@ import vision from '../assets/vision.jpg';
       </div>
     </div>
   </div>
+
+    <div class="download-actions">
+  <button class="dai-button" @click="showDAIModal = true">
+    <span class="icon">📘</span>
+    Ver información completa de DAI Despachos Aduanales Integrados
+  </button>
+</div>
+
+    <transition name="fade-zoom">
+      <div class="modal-backdrop" v-if="showDAIModal">
+        <div class="modal-box">
+          <div class="modal-content">
+            <button class="close-button" @click="showDAIModal = false">✖</button>
+            <div class="dai-logo-container">
+              <img :src="daiLogo" alt="Logo DAI" class="dai-logo" />
+            </div>
+            <h2>📘 Despachos Aduanales Integrados (DAI)</h2>
+            <h3>¿Quiénes somos?</h3>
+            <ul>
+              <li>Más que una agencia aduanal, DAI agrupa empresas líderes en logística y comercio exterior.</li>
+              <li>Contamos con más de 20 años de experiencia y cobertura nacional e internacional.</li>
+            </ul>
+
+            <h3>Servicios destacados</h3>
+            <ul>
+              <li>Agencia Aduanal, logística, bodega en EUA, verificación en origen, unidad verificadora acreditada.</li>
+              <li>Registros FDA, etiquetado, certificados de origen, capacitación y más.</li>
+            </ul>
+              <div class="dai-extra-images">
+                <img :src="img1" alt="Ejemplo 1" class="dai-extra-img" />
+              </div>
+            <h3>Consultoría y cumplimiento</h3>
+            <ul>
+              <li>Trámites ante Economía, certificaciones IVA/IEPS, auditoría y control aduanero.</li>
+            </ul>
+
+            <h3>Contacto</h3>
+            <ul>
+              <li><strong>Teléfonos:</strong> (871) 213 4833 / (871) 213 2500 / 001 956 744 3348</li>
+              <li><strong>Correos:</strong> jtorres@daiweb.mx / csandoval@daiweb.mx</li>
+            </ul>
+            <h3>Capacitación y servicios complementarios</h3>
+    <ul>
+      <li>BIN LEY y correlación aduanera, sistema de información y consulta básica.</li>
+      <li>Pedimento aduanero, control de importaciones, manejo del activo fijo.</li>
+      <li>Proyectos de exportación e importación.</li>
+      <li>Certificación y manejo del anexo 24 y 30. Sistema Betta Global Systems.</li>
+      <li>Importaciones temporales y definitivas. Especialización para obtener patente.</li>
+      <li>Guía básica del exportador (Bancomext) y programa "Tú puedes exportar" (COMCE).</li>
+    </ul>
+
+            <div class="dai-extra-images">
+                <img :src="img2" alt="Ejemplo 2" class="dai-extra-img" />
+              </div>
+            <div class="dai-extra-images">
+                <img :src="img3" alt="Ejemplo 3" class="dai-extra-img" />
+              </div>
+    <h3>Servicios ampliados</h3>
+    <ul>
+      <li>Logística nacional e internacional. Revisión de origen y auditoría aduanera.</li>
+      <li>Consultoría de comercio exterior, padrones, trámites ante Economía.</li>
+      <li>Certificaciones IVA/IEPS. Unidad verificadora acreditada.</li>
+      <li>Verificación de proveedores, seguros de mercancía, control de inventarios.</li>
+    </ul>
+
+            <div class="dai-extra-images">
+                <img :src="BufinLogo" alt="Bufin Logo" class="dai-extra-img" />
+              </div>
+              
+    <p style="margin-top: 1rem; font-style: italic; color: #1f3b73;">
+      “Rapidez, costo y seguridad jurídica” en Despachos Aduanales Integrados.
+    </p>
+
+        <div class="binley-promo-container">
+          <img
+            :src="binleyAnuncio"
+            alt="Promoción BIN LEY 2025"
+            class="binley-promo-img"
+            @click="showImageModal = true"
+          />
+          <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Haz clic en la imagen para ampliarla</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</transition>
+
+<transition name="fade-zoom">
+  <div class="modal-backdrop" v-if="showImageModal" @click.self="showImageModal = false">
+    <div class="image-modal-clean">
+      <button class="close-button clean" @click="showImageModal = false">✖</button>
+      <img :src="binleyAnuncio" alt="BIN LEY 2025" class="binley-full-image" />
+    </div>
+  </div>
+</transition>
+
+
+
 
   <Footer />
 </template>
@@ -220,4 +329,287 @@ import vision from '../assets/vision.jpg';
     width: 100%;
   }
 }
+/* Modal backdrop */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(10, 31, 60, 0.85); /* azul oscuro translúcido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Caja del modal */
+.modal-box {
+  background-color: transparent; 
+  border-radius: 0;             
+  padding: 0;                    
+  max-width: 800px;
+  width: 90%;
+  overflow-y: auto;
+  max-height: 100vh;
+  animation: fadeInZoom 0.35s ease;
+  display: flex;
+  justify-content: center;
+}
+
+
+.close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #0a1f3c;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  z-index: 10;
+}
+
+.close-button:hover {
+  color: #f5b841;
+  transform: scale(1.2);
+}
+
+
+/* Contenido del modal */
+
+.modal-content {
+  position: relative;
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  max-width: 700px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  color: #0a1f3c;
+}
+
+
+.modal-content h2 {
+  color: #f5b841;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.modal-content h3 {
+  color: #1f3b73;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal-content ul {
+  padding-left: 1.2rem;
+  list-style-type: disc;
+  margin-bottom: 1.25rem;
+}
+
+.modal-content li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.modal-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.modal-content th,
+.modal-content td {
+  border: 1px solid #ccc;
+  padding: 0.6rem;
+  text-align: left;
+}
+
+.modal-content th {
+  background-color: #f5b841;
+  color: #0a1f3c;
+}
+
+/* Animación entrada */
+@keyframes fadeInZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Transición para Vue <transition> */
+.fade-zoom-enter-active,
+.fade-zoom-leave-active {
+  transition: all 0.3s ease;
+}
+
+.fade-zoom-enter-from,
+.fade-zoom-leave-to {
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+.fade-zoom-enter-to,
+.fade-zoom-leave-from {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.download-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px; 
+  background-color:#0a1f3c;
+}
+
+
+.dai-button {
+  background-color: #f5b841;
+  color: #0a1f3c;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.dai-button:hover {
+  background-color: #f8c95a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.dai-button .icon {
+  font-size: 1.2rem;
+}
+
+.dai-logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.dai-logo {
+  width: 150px;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.binley-promo-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.binley-promo-img {
+  width: 100%;
+  max-width: 550px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.binley-promo-img:hover {
+  transform: scale(1.02);
+}
+
+.image-modal-box {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 1rem;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.full-image {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  object-fit: contain;
+}
+
+.image-modal-clean {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.binley-full-image {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 1rem;
+  object-fit: contain;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.6);
+}
+
+.close-button.clean {
+  position: absolute;
+  top: -2rem;
+  right: -2rem;
+  background-color: #ffffff;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  color: #0a1f3c;
+  cursor: pointer;
+  border: none;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.close-button.clean:hover {
+  background-color: #f5b841;
+  color: #0a1f3c;
+  transform: scale(1.1);
+}
+
+.dai-extra-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.dai-extra-img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.dai-extra-img:hover {
+  transform: scale(1.05);
+}
+
+
 </style>

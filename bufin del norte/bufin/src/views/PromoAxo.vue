@@ -10,7 +10,14 @@ import Footer from '../components/Footer.vue'
     <div class="hero-content">
       <h1>Axo Web</h1>
       <p>Diseño estratégico, moderno y funcional para destacar tu presencia digital.</p>
-      <button class="visit-button" disabled>Próximamente</button>
+      <a
+        href="https://axowebdigital.com"
+        class="visit-button"
+        target="_blank"
+        rel="noopener"
+      >
+        Visítanos
+      </a>
     </div>
   </section>
 
@@ -68,9 +75,14 @@ import Footer from '../components/Footer.vue'
   padding: 0.75rem 2rem;
   border-radius: 50px;
   font-weight: 600;
-  border: none;
-  cursor: default;
-  opacity: 0.8;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.visit-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
 .features {

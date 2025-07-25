@@ -3,10 +3,11 @@ import Navbar from '../components/Navbar.vue';
 import Footer from '../components/Footer.vue';
 
 // Importar imágenes
-import consultingOffer from '../assets/consulting-offer.jpg';
-import howWeWork from '../assets/how-we-work.jpg';
+import consultingOffer from '../assets/portada-bufin.png';
 import targetClient from '../assets/target-client.jpg';
 import whyChooseUs from '../assets/why-choose-us.jpg';
+import DataStage from '../assets/DataStage.jpg';
+
 </script>
 
 <template>
@@ -20,7 +21,7 @@ import whyChooseUs from '../assets/why-choose-us.jpg';
         <div class="bubble">¿Qué ofrecemos?</div>
         <div class="line"></div>
         <div class="content-block">
-          <img :src="consultingOffer" alt="Consultoría empresarial" class="content-image" />
+          <img :src="consultingOffer" alt="Consultoría empresarial" class="content-image small-image" />
           <p>Ofrecemos consultoría estratégica en comercio exterior, enfocada en brindar soluciones personalizadas y efectivas para cada cliente.</p>
           <i class="bi bi-briefcase-fill icon"></i>
         </div>
@@ -31,7 +32,7 @@ import whyChooseUs from '../assets/why-choose-us.jpg';
         <div class="bubble">¿Cómo trabajamos?</div>
         <div class="line"></div>
         <div class="content-block">
-          <img :src="howWeWork" alt="Cómo trabajamos" class="content-image" />
+          <img :src="DataStage" alt="DataStage" class="content-image" />
           <p>Realizamos un diagnóstico detallado, identificamos oportunidades de mejora y acompañamos al cliente en todo el proceso de implementación.</p>
           <i class="bi bi-gear-fill icon"></i>
         </div>
@@ -220,6 +221,17 @@ import whyChooseUs from '../assets/why-choose-us.jpg';
   background: #ccc;
   transform: translateY(-3px);
 }
+
+.small-image {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  margin: 0 auto;
+  display: block; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
 
 @media (max-width: 768px) {
   .timeline-item {

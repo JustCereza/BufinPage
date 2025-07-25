@@ -16,6 +16,7 @@
               <button type="button" data-bs-target="#companyCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#companyCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
               <button type="button" data-bs-target="#companyCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#companyCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
             </div>
 
             <!-- Slides -->
@@ -25,14 +26,41 @@
                   <h2 class="display-1 fw-bold company-blue animate__animated animate__fadeInUp text-shadow">BN</h2>
                 </div>
               </div>
+
               <div class="carousel-item">
                 <div class="carousel-content d-flex align-items-center justify-content-center">
-                  <img src="/src/assets/bn.jpg" alt="Logo circular azul de BN" class="img-fluid carousel-logo animate__animated animate__fadeInUp" />
+                  <img
+                    src="/src/assets/bn.jpg"
+                    alt="Logo circular azul de BN"
+                    class="img-fluid carousel-logo animate__animated animate__fadeInUp"
+                  />
                 </div>
               </div>
+
               <div class="carousel-item">
                 <div class="carousel-content d-flex align-items-center justify-content-center">
-                  <img src="/src/assets/bufin del norte.jpg" alt="Imagen institucional de Bufin del Norte" class="img-fluid rounded shadow-sm animate__animated animate__fadeInUp" />
+                  <img
+                    src="/src/assets/bufin del norte.jpg"
+                    alt="Imagen institucional de Bufin del Norte"
+                    class="img-fluid rounded shadow-sm animate__animated animate__fadeInUp"
+                  />
+                </div>
+              </div>
+
+              <!-- Slide con imagen de BINLEY -->
+              <div class="carousel-item">
+                <div class="carousel-content d-flex align-items-center justify-content-center promo-container">
+                  <router-link to="/programa" class="promo-link" aria-label="Ir a Programa Ley Aduanera">
+                    <img
+                      :src="binleySidePromo"
+                      alt="BINLEY Correlación Aduanera Digital 2025"
+                      class="img-fluid rounded shadow-sm animate__animated animate__fadeInUp promo-img"
+                    />
+                    <div class="promo-text">
+                      <h3 class="glow-text">App BINLEY</h3>
+                      <p>Correlación Aduanera</p>
+                    </div>
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -54,7 +82,7 @@
 </template>
 
 <script setup>
-// No se requiere lógica por ahora
+import binleySidePromo from '../assets/ProgramaLey.png'
 </script>
 
 <style scoped>
@@ -93,8 +121,69 @@
   object-fit: cover;
 }
 
-.text-shadow {
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+/* --- Slide BINLEY --- */
+.promo-container {
+  position: relative;
+}
+
+.promo-img {
+  max-height: 100%;
+  max-width: 100%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  border-radius: 12px;
+}
+
+.promo-img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Texto superpuesto --- */
+.promo-text {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  animation: fadeInUp 1s ease;
+}
+
+.promo-text h3 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.promo-text p {
+  font-size: 0.9rem;
+  margin: 0;
+  color: #fffbf2;
+}
+
+/* --- Glow Effect --- */
+.glow-text {
+  color: #ffdd57;
+  text-shadow:
+    0 0 5px #ffea9b,
+    0 0 10px #ffd84a,
+    0 0 20px #ffb400,
+    0 0 30px #ff9f00;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px #ffea9b, 0 0 10px #ffd84a, 0 0 20px #ffb400, 0 0 30px #ff9f00;
+  }
+  100% {
+    text-shadow: 0 0 10px #fff6d1, 0 0 20px #ffdc7a, 0 0 30px #ffc107, 0 0 40px #ffa000;
+  }
 }
 
 /* --- Indicadores --- */
@@ -128,10 +217,6 @@
   transform: translateY(-50%) scale(1.1);
 }
 
-.custom-carousel-control:active {
-  transform: translateY(-50%) scale(0.95);
-}
-
 .custom-carousel-control.prev {
   left: 10px;
 }
@@ -147,18 +232,14 @@
     padding: 1rem;
   }
 
+  .promo-text {
+    font-size: 0.8rem;
+    padding: 0.6rem 1rem;
+  }
+
   .carousel-logo {
     height: 140px;
     width: 140px;
-  }
-
-  .display-1 {
-    font-size: 3rem;
-  }
-
-  .custom-carousel-control {
-    font-size: 1.2rem;
-    padding: 0.4rem 0.8rem;
   }
 }
 
@@ -167,13 +248,8 @@
     height: 250px;
   }
 
-  .carousel-logo {
-    height: 100px;
-    width: 100px;
-  }
-
-  .display-1 {
-    font-size: 2.5rem;
+  .promo-text h3 {
+    font-size: 1.1rem;
   }
 }
 </style>
