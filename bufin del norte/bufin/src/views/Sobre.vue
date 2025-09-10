@@ -16,6 +16,7 @@ import img1 from '../assets/dai-modal-1.png';
 import img2 from '../assets/dai-modal-2.png';
 import img3 from '../assets/dai-modal-3.png';
 import BufinLogo from '../assets/Bufin-Logo.png';
+import Bufin from '../assets/bufin del norte.jpg';
 
 const showDAIModal = ref(false);
 const showImageModal = ref(false);
@@ -73,7 +74,7 @@ const showImageModal = ref(false);
         <div class="bubble">Nuestra Misión</div>
         <div class="line"></div>
         <div class="content-block">
-          <img :src="thinking" alt="Persona con idea" class="timeline-img" />
+          <img :src="Bufin" alt="Bufin" class="timeline-img" />
           <p>Brindar servicios de comercio exterior con excelencia, integridad y compromiso, generando valor mediante soluciones efectivas e innovadoras.</p>
           <i class="bi bi-lightbulb-fill icon"></i>
         </div>
@@ -118,9 +119,7 @@ const showImageModal = ref(false);
               <li>Agencia Aduanal, logística, bodega en EUA, verificación en origen, unidad verificadora acreditada.</li>
               <li>Registros FDA, etiquetado, certificados de origen, capacitación y más.</li>
             </ul>
-              <div class="dai-extra-images">
-                <img :src="img1" alt="Ejemplo 1" class="dai-extra-img" />
-              </div>
+     
             <h3>Consultoría y cumplimiento</h3>
             <ul>
               <li>Trámites ante Economía, certificaciones IVA/IEPS, auditoría y control aduanero.</li>

@@ -63,12 +63,12 @@ const closeModal = () => {
         </a>     
       </div>
 
-      <!-- Botón de Instrucciones -->
-      <div class="download-actions">
-        <button class="download-button secondary" @click="openModal">
-          📋 Instrucciones
-        </button>
-      </div>
+        <!-- Botón de Instrucciones -->
+        <div class="download-actions">
+          <button class="download-button secondary" @click="openModal">
+            📋 Instrucciones
+          </button>
+        </div>
 
  <!--instrucciones -->
 <transition name="fade-zoom">
@@ -145,10 +145,7 @@ const closeModal = () => {
 
     </section>
 
-    <!-- Imagen a la derecha -->
-    <aside class="promo-aside">
-      <img :src="binleySidePromo" alt="Promoción BINLEY 2025" class="promo-aside-img" />
-    </aside>
+
 
   </div>
 </main>
