@@ -63,6 +63,7 @@ const closeModal = () => {
         </a>     
       </div>
 
+
         <!-- Botón de Instrucciones -->
         <div class="download-actions">
           <button class="download-button secondary" @click="openModal">
@@ -139,6 +140,27 @@ const closeModal = () => {
           </tbody>
         </table>
       </div>
+                    <!-- Dentro del modal -->
+      <div class="modal-content">
+        <h2>📘 Tutorial Ley Aduanera</h2>
+        <p>Puedes visualizar el tutorial aquí mismo o abrirlo en una pestaña nueva para mayor comodidad.</p>
+
+        <!-- Visor integrado -->
+        <iframe 
+          src="/binley-tutorial.pdf" 
+          width="100%" 
+          height="500px" 
+          style="border:none; border-radius: 0.5rem;">
+        </iframe>
+
+        <!-- Botón para abrir en otra pestaña -->
+        <div style="margin-top: 1rem; text-align:center;">
+          <a href="/binley-tutorial.pdf" target="_blank" class="download-button secondary">
+            🔗 Abrir en nueva pestaña
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 </transition>
